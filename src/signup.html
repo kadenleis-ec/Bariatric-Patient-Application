@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+
+    <link rel="stylesheet" href="../assets/css/signup.css">
+</head>
+<body>
+
+    <!-- header part (same as the login) -->
+    <div id="header">
+        <div class="logo">
+            <img src="../assets/images/icons/mayo-logo.svg" alt="Mayo_Logo">
+        </div>
+    </div>
+
+    <!-- title part (similar as the login part) -->
+    <div id="title">
+        <p>Create your account</p>
+    </div>
+
+    <!-- the type-in part (for user to type their info) -->
+    <div id="main">
+        <form action="../assets/php/signup.php" method="POST">
+
+            <p class="label">Username</p>
+            <input type="text" class="input-box" name="username" required>
+
+            <p class="label">Email</p>
+            <input type="email" class="input-box" name="email" required>
+
+            <p class="label">Re-enter Email</p>
+            <input type="email" class="input-box" name="confirm_email" required>
+
+            <p class="label">First Name</p>
+            <input type="text" class="input-box" name="first_name">
+
+            <p class="label">Last Name</p>
+            <input type="text" class="input-box" name="last_name">
+
+            <p class="label">Password</p>
+            <input type="password" class="input-box" name="password" required>
+
+            <button type="submit" class="signup-btn">Sign up</button>
+
+        </form>
+    </div>
+
+</body>
+</html>
