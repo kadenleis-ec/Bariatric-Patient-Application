@@ -329,7 +329,7 @@ body{
 
 
 /* footer  */
-.simple-footer {
+.footer {
     text-align: center;
     padding: 25px 20px;
     background-color: #f0f4f8;
@@ -338,7 +338,7 @@ body{
     font-family: "Segoe UI", "Helvetica Neue", sans-serif;
 }
 
-.simple-footer span {
+.footer span {
     font-weight: 600;
     color: #005eb8;
 }

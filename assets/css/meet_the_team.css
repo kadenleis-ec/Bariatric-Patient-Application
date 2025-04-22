@@ -1,0 +1,186 @@
+body{
+    margin: 0;
+    padding: 0;
+
+    height: auto;
+    background: linear-gradient(160deg, #2962ff 40%, white 40%);
+
+
+
+}
+
+/* -----------header part------------ */
+#header{
+    height: 100px;
+    width:100%;
+    background-color: white;
+
+    display: flex;
+    justify-content: space-between;
+
+    align-items: center;
+
+
+}
+.logo {
+    display: flex;
+    align-items: center;
+    height: 100px;
+}
+
+.logo img{
+    margin-left:100px;
+    height: 100px;
+    width: auto;
+}
+
+.right_part, .left_part{
+    display: flex;
+    align-items: center;
+}
+
+.right_part{
+    gap: 30px;
+    margin-right: 100px;
+}
+.right_box a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.right_box a:hover {
+    color: #0071e3;
+}
+
+
+/* --------------the css of container---------------  */
+#container{
+    width: 80%;
+    margin: 0 auto; 
+    background-color: white;
+
+    height: auto;
+
+
+    margin-top: 50px;
+
+}
+#title{
+    height: 200px;
+    width: 80%;
+    margin: 0 auto; 
+
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+}
+h1{
+    font-size: 50px;
+    color:#2962ff;
+    text-align: center;
+    font-family: 'Georgia', serif;
+    font-weight: 500;
+    margin:0;  
+}
+
+#member_box{
+    width: 80%;
+    margin: 0 auto; 
+    background-color: white;
+
+    display: flex;
+
+    margin-top: 20px;
+    margin-bottom: 80px;
+
+    height: auto;
+}
+
+#member_box img{
+    height: 100%;
+
+    margin-right: 30px;
+}
+
+.text{
+    display: flex;
+    flex-direction: column;
+
+}
+h2{
+    font-family: 'Georgia', serif;
+    font-size: 26px;
+    font-weight: 300;
+
+    margin-bottom: 4px;
+    margin-top: -5px;
+}
+
+.csd{
+    margin-bottom: -5px;
+
+    font-weight: 900;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+
+}
+
+
+.position{
+    font-family: 'Arial', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    margin-bottom: 0px;
+
+
+
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 15px 0;
+    width: 100%;
+
+    margin-bottom: -5px;
+}
+
+
+  
+.contact p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: -10px;
+}
+  
+.contact a {
+    color: #2962ff;
+    text-decoration: underline dotted;
+}
+
+.research {
+    font-size: 15px;
+    margin-top: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+  
+
+
+/* ----------footer----------  */
+.footer {
+    text-align: center;
+    padding: 25px 20px;
+    background-color: #f0f4f8;
+    color: #333;
+    font-size: 15px;
+    font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+}
+
+.footer span {
+    font-weight: 600;
+    color: #005eb8;
+}
