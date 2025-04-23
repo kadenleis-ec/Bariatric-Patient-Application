@@ -1,0 +1,200 @@
+body {
+    margin: 0;
+    padding: 0;
+
+    height: 100vh;
+
+    background: linear-gradient(160deg, #2962ff 50%, white 50%);
+}
+
+
+/* -----------header part------------ */
+#header{
+    height: 100px;
+    width:100%;
+    background-color: white;
+
+    display: flex;
+    justify-content: space-between;
+
+    align-items: center;
+
+
+}
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img{
+    margin-left:100px;
+    height: 90px;
+    width: auto;
+}
+
+.right_part, .left_part{
+    display: flex;
+    align-items: center;
+}
+
+.right_part{
+    gap: 30px;
+    margin-right: 100px;
+}
+.right_box a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.right_box a:hover {
+    color: #0071e3;
+}
+
+/* -----------css of container------------ */
+#container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+
+    max-width: 1200px;
+
+    margin: 50px auto;
+    
+    height: auto;
+
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+
+    padding: 20px;
+
+    
+}
+
+/* -----------calendar part------------ */
+#calendar {
+    margin: 0 auto;
+    width: 80%;
+    max-width: 600px;
+}
+
+#calendar h3 {
+    color: black;
+    margin-bottom: 20px;
+}
+
+#calendar input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    margin-bottom: 50px;
+}
+
+ /* -------------- detail part ------------- */
+#details {
+    width: 80%;
+    max-width: 600px;
+}
+
+#details h3 {
+    margin-bottom: 10px;
+    color: black;
+}
+
+select, button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    margin-bottom: 50px;
+}
+
+button {
+    margin-top: 50px;
+    margin: 50px auto 0 auto;
+    display: block;
+    width: 40%;
+    background-color:#0071e3;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 50px;
+}
+
+button:hover {
+    background-color:#005dbb;
+}
+
+#purposeSection h3 {
+    margin-bottom: 10px;
+}
+  
+#purposeInput {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 50px;
+}
+
+
+
+/* ----------------------- */
+.popup {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    /* border: 1px solid #0071e3; */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    z-index: 1000;
+    text-align: center;
+}
+
+
+.popup h3 {
+    margin: 0 0 10px 0;
+    color: #000000;
+}
+
+.popup p {
+    margin: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.footer {
+    text-align: center;
+    padding: 25px 20px;
+    background-color: #f0f4f8;
+    color: #333;
+    font-size: 15px;
+    font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
+.footer span {
+    font-weight: 600;
+    color: #005eb8;
+}

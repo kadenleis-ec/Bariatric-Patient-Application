@@ -2,6 +2,9 @@ body{
     margin: 0 auto; 
     padding: 0;
 
+    height: 100vh;
+    background: linear-gradient(160deg,  white 40%,#2962ff 40%);
+
 
 }
 
@@ -36,6 +39,8 @@ body{
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     padding: 60px;
     margin-top: 50px;
+
+    background-color: white;
     
 }
 
@@ -76,7 +81,8 @@ h2{
     height: 40px;
     width: 120px;
     margin-top: 10px;
-    background-color: #00aaff;
+
+    background-color: #2962ff;
     color: white;
     border: none;
     border-radius: 8px;
@@ -88,12 +94,12 @@ h2{
 }
 
 .adddata_btn:hover {
-    background-color: #008fcc;
+    background-color: #0e4eff;
     transform: translateY(-2px);
 }
 
 .adddata_btn:active {
-    background-color: #0077aa;
+    background-color: #0e4eff;
     transform: translateY(0);
 }
 
