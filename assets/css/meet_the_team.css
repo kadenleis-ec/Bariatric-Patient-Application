@@ -25,12 +25,11 @@ body{
 .logo {
     display: flex;
     align-items: center;
-    height: 100px;
 }
 
 .logo img{
     margin-left:100px;
-    height: 100px;
+    height: 90px;
     width: auto;
 }
 
@@ -55,10 +54,9 @@ body{
     color: #0071e3;
 }
 
-
 /* --------------the css of container---------------  */
 #container{
-    width: 80%;
+    width: 67%;
     margin: 0 auto; 
     background-color: white;
 

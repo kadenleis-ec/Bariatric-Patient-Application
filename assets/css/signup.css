@@ -2,7 +2,7 @@ body{
     margin: 0 auto; 
     padding: 0;
 
-    width: 600px;
+    
 }
 
 
@@ -13,6 +13,9 @@ body{
     /* background-color: black; (to adjust the header position )*/
 
     margin-top:40px;
+
+    width: 600px;
+    margin: 40px auto;
 }
 
 .logo img{
@@ -33,6 +36,8 @@ body{
 /* -------css of the main part---------- */
 
 #main{
+    width: 600px;
+    margin: 0 auto;
     background-color:white;
 
     /* create the border to adjust the location*/
@@ -88,4 +93,25 @@ body{
 .signup-btn:hover {
     background-color: #3a75e3;
     opacity: 0.9;
+}
+
+
+
+/* footer  */
+.footer {
+    text-align: center;
+    padding: 25px 20px;
+    background-color: #f0f4f8;
+    color: #333;
+    font-size: 15px;
+    font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer span {
+    font-weight: 600;
+    color: #005eb8;
 }

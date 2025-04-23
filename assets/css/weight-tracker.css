@@ -1,22 +1,19 @@
 body{
     margin: 0 auto; 
     padding: 0;
-    width: 1000px;
+
+
 }
 
+/* -----------header part------------ */
 #header{
     height: 70px;
     width:100%;
-    background-color: green;
-
     margin-top:40px;
+    margin-bottom: 30px;
 
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    height: 70px;
+    width:1000px;
+    margin: 40px auto;
 }
 
 .logo img{
@@ -26,9 +23,19 @@ body{
 }
 
 
-
+/*--------------------the css of container-------------------  */
 #container{
     margin-top: 30px;
+
+    width:1000px;
+    margin: 0 auto;
+
+    
+
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    padding: 60px;
+    margin-top: 50px;
     
 }
 
@@ -97,3 +104,21 @@ canvas{
     margin-top: 50px;
 }
 
+/* footer  */
+.footer {
+    text-align: center;
+    padding: 25px 20px;
+    background-color: #f0f4f8;
+    color: #333;
+    font-size: 15px;
+    font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer span {
+    font-weight: 600;
+    color: #005eb8;
+}
