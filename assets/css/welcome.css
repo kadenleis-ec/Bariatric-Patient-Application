@@ -37,7 +37,7 @@ body{
     width: auto;
 }
 .nav_box{
-    height: 100px;
+    height: 80px;
     width: auto;
     min-width: 100px;
     background-color:white;
@@ -137,10 +137,6 @@ body{
 
 }
   
-
-
-
-
 .right_part{
     gap: 30px;
     margin-right: 100px;
@@ -156,6 +152,8 @@ body{
 .right_box a:hover {
     color: #0071e3;
 }
+
+
 
 
 
@@ -439,8 +437,11 @@ body{
 
 /* footer  */
 .footer {
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;   
     text-align: center;
-    padding: 25px 20px;
     background-color: #f0f4f8;
     color: #333;
     font-size: 15px;

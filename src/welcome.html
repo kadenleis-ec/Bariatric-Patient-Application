@@ -56,10 +56,7 @@
             <div class="right_box">
                 <a href="../src/login.html">Log in</a>
             </div>
-
         </div>
-
-
 
     </div>
 
@@ -67,6 +64,8 @@
 
 
 
+
+    <!-- ---------------the video part ----------------  -->
     <div id="videoPart">
         <video src="../assets/images/welcome-page/wc-vid.mp4" autoplay muted loop playsinline></video>
 
@@ -81,7 +80,7 @@
 
 
 
-
+    <!-- -----------------the search bar part------------------------- -->
     <div id="search_part">
 
         <div class="left-section">
@@ -189,15 +188,15 @@
 
 
     <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const toggleButton = document.querySelector('.nav_toggle');
-        const menu = document.getElementById('dropdownMenu');
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggleButton = document.querySelector('.nav_toggle');
+            const menu = document.getElementById('dropdownMenu');
 
-    toggleButton.addEventListener('click', function () {
-      menu.classList.toggle('open');
-    });
-  });
-</script>
+        toggleButton.addEventListener('click', function () {
+        menu.classList.toggle('open');
+        });
+        });
+    </script>
     
 </body>
 </html>

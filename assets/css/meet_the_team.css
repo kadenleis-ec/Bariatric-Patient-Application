@@ -171,7 +171,11 @@ hr {
 /* ----------footer----------  */
 .footer {
     text-align: center;
-    padding: 25px 20px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+    text-align: center;
     background-color: #f0f4f8;
     color: #333;
     font-size: 15px;

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+</head>
+<body>
+
+    <!-- the header  -->
+    <div id="header">
+
+        <div class="left_part">
+
+            
+
+            <a href="welcome.html">
+                <div class="logo">
+                    <img src="../assets/images/icons/mayo-logo.svg" alt="Mayo_Logo">
+                </div>
+            </a>
+            
+            <div class="nav_toggle" onclick="toggleMenu()">☰</div>
+
+            <div class="main_menu">
+                <a href="weight-tracker.html" class="nav_box">Weight Tracker</a>
+                <a href="bmi.html" class="nav_box">BMI Calculator</a>
+                <a href="meet_the_team.html" class="nav_box">Meet The Team</a>
+                <a href="mood-tracker.html" class="nav_box">Mood Tracker</a>
+                <a href="social-support.html" class="nav_box">Social Support</a>
+                <a href="q-and-a.html" class="nav_box">Q & A</a>
+            </div>
+            
+            <div class="dropdown_menu" id="dropdownMenu">
+                <a href="weight-tracker.html" class="nav_box">Weight Tracker</a>
+                <a href="bmi.html" class="nav_box">BMI Calculator</a>
+                <a href="meet_the_team.html" class="nav_box">Meet The Team</a>
+                <a href="mood-tracker.html" class="nav_box">Mood Tracker</a>
+                <a href="social-support.html" class="nav_box">Social Support</a>
+                <a href="q-and-a.html" class="nav_box">Q & A</a>
+            </div>
+
+            
+
+        </div>
+        
+
+        <!-- the request appointment adn login button -->
+        <div class="right_part">            
+
+            <div class="right_box">
+                <a href="appointment.html">Request appointment</a> 
+            </div>
+            <div class="right_box">
+                <a href="../src/login.html">Log in</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggleButton = document.querySelector('.nav_toggle');
+            const menu = document.getElementById('dropdownMenu');
+
+        toggleButton.addEventListener('click', function () {
+        menu.classList.toggle('open');
+        });
+        });
+    </script>
+
+
+    <div id="container">
+        <div id="info_box1"> <!--user information-->
+
+        </div>
+
+        <div id="info_box2"> <!--weight track-->
+
+        </div>
+
+        <div id="info_box3"><!--mood track-->
+
+        </div>
+
+        <div id="info_box4"><!--appointment history-->
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+</body>
+</html>
