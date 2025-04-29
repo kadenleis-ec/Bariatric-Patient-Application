@@ -2,8 +2,8 @@ body{
     margin: 0 auto; 
     padding: 0;
 
-    height: 100vh;
-    background: linear-gradient(160deg,  white 40%,#2962ff 40%);
+    min-height: 100vh;
+    background: linear-gradient(160deg,  white 50%,#2962ff 50%);
 
 
 }
@@ -123,8 +123,7 @@ canvas{
     font-size: 15px;
     font-family: "Segoe UI", "Helvetica Neue", sans-serif;
 
-    position: fixed;
-    bottom: 0;
+
     width: 100%;
 }
 
