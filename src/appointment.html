@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Appointment</title>
+
+    <link rel="stylesheet" href="../assets/css/appointment.css">
+</head>
+<body>
+    <div id="header">
+
+        <div class="left_part">
+
+            
+
+            <a href="welcome.html">
+                <div class="logo">
+                    <img src="../assets/images/icons/mayo-logo.svg" alt="Mayo_Logo">
+                </div>
+            </a>
+            
+            <div class="nav_toggle" onclick="toggleMenu()">☰</div>
+
+            <div class="main_menu">
+                <a href="weight-tracker.html" class="nav_box">Weight Tracker</a>
+                <a href="bmi.html" class="nav_box">BMI Calculator</a>
+                <a href="meet_the_team.html" class="nav_box">Meet The Team</a>
+                <a href="mood_tracker.html" class="nav_box">Mood Tracker</a>
+                <a href="social-support.html" class="nav_box">Social Support</a>
+                <a href="q-and-a.html" class="nav_box">Q & A</a>
+            </div>
+            
+            <div class="dropdown_menu" id="dropdownMenu">
+                <a href="weight-tracker.html" class="nav_box">Weight Tracker</a>
+                <a href="bmi.html" class="nav_box">BMI Calculator</a>
+                <a href="meet_the_team.html" class="nav_box">Meet The Team</a>
+                <a href="mood_tracker.html" class="nav_box">Mood Tracker</a>
+                <a href="social-support.html" class="nav_box">Social Support</a>
+                <a href="q-and-a.html" class="nav_box">Q & A</a>
+            </div>
+
+            
+
+        </div>
+        
+
+        <!-- the request appointment adn login button -->
+        <div class="right_part">            
+
+            <div class="right_box">
+                <a href="appointment.html">Request appointment</a> 
+            </div>
+            <div class="right_box">
+                <a href="../src/login.html">Log in</a>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="container">
+
+        <div id="calendar">
+            <h3>Select a Date</h3>
+            <input type="date" id="datePicker" />
+
+        </div>
+        
+        <div id="details">
+            <div id="personSection" class="hidden">
+                <h3>Select a Staff</h3>
+                <select id="staffSelect">
+                    <option value="">-- Choose a staff member --</option>
+                    <option value="Alex Smith">Alex Smith</option>
+                    <option value="Dr. Bokai Yang">Dr. Bokai Yang</option>
+                    <option value="Benjamin Fine, Ph.D.">Benjamin Fine, Ph.D.</option>
+                    <option value="Rahul Gomes, Ph.D.">Rahul Gomes, Ph.D.</option>
+                    <option value="Dr. Emily Hastings">Dr. Emily Hastings</option>
+                    <option value="Xiang Ma">Xiang Ma</option>
+                </select>
+            </div>
+
+        
+            <div id="timeSection" class="hidden">
+                <h3>Select a Time</h3>
+                <select id="timeSelect"></select>
+            </div>
+
+            <div id="purposeSection" class="hidden">
+                <h3>Please enter the purpose of your appointment</h3>
+                <input type="text" id="purposeInput" placeholder="e.g., Weight consultation, follow-up..." />
+            </div>
+
+        
+            <button id="confirmBtn" class="hidden">Confirm Appointment</button>
+
+        </div>
+
+
+        
+        <div id="popup" class="popup hidden">
+            <h3>Appointment Confirmed!</h3>
+            <p>Your appointment has been successfully scheduled.</p>
+        </div>
+
+
+        
+        <script>
+            const datePicker = document.getElementById("datePicker");
+            const staffSelect = document.getElementById("staffSelect");
+            const timeSelect = document.getElementById("timeSelect");
+            const personSection = document.getElementById("personSection");
+            const timeSection = document.getElementById("timeSection");
+            const confirmBtn = document.getElementById("confirmBtn");
+            const popup = document.getElementById("popup");
+        
+            datePicker.addEventListener("change", () => {
+            personSection.classList.remove("hidden");
+            timeSection.classList.add("hidden");
+            confirmBtn.classList.add("hidden");
+            });
+        
+            staffSelect.addEventListener("change", () => {
+            if (staffSelect.value) {
+                timeSelect.innerHTML = "";
+                for (let hour = 8; hour <= 17; hour++) {
+                const ampm = hour < 12 ? "AM" : "PM";
+                const hourFormatted = hour <= 12 ? hour : hour - 12;
+                const option = document.createElement("option");
+                option.value = `${hour}:00`;
+                option.textContent = `${hourFormatted}:00 ${ampm}`;
+                timeSelect.appendChild(option);
+                }
+                timeSection.classList.remove("hidden");
+                confirmBtn.classList.add("hidden");
+            } else {
+                timeSection.classList.add("hidden");
+                confirmBtn.classList.add("hidden");
+            }
+            });
+        
+            timeSelect.addEventListener("change", () => {
+            if (timeSelect.value) {
+                    document.getElementById("purposeSection").classList.remove("hidden");
+                    confirmBtn.classList.add("hidden");
+            } else {
+                    document.getElementById("purposeSection").classList.add("hidden");
+                    confirmBtn.classList.add("hidden");
+            }
+            });
+
+
+            document.getElementById("purposeInput").addEventListener("input", () => {
+            if (document.getElementById("purposeInput").value.trim() !== "") {
+                    confirmBtn.classList.remove("hidden");
+            } else {
+                    confirmBtn.classList.add("hidden");
+            }
+            });
+        
+            confirmBtn.addEventListener("click", () => {
+            popup.classList.remove("hidden");
+            setTimeout(() => {
+                popup.classList.add("hidden");
+            }, 3000);
+            });
+        </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggleButton = document.querySelector('.nav_toggle');
+            const menu = document.getElementById('dropdownMenu');
+
+        toggleButton.addEventListener('click', function () {
+        menu.classList.toggle('open');
+        });
+        });
+    </script>
+
+
+
+
+    <footer class="footer">
+        <p>&copy; 2025 <span>CS268 Group 5</span>. All rights reserved.</p>
+    </footer>
+
+    </div>
+    
+</body>
+</html>
