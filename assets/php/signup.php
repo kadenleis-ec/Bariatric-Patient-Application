@@ -1,5 +1,5 @@
 <?php
-include '../assets/php/db.php'; // connect to the database
+include 'db.php'; // connect to the database
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // get all the input from the form
@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // if it worked, send them to the login page to login after signing up
     if ($stmt->execute()) {
         echo "Sign-up successful!";
-        header("Location: ../src/login.html");
+        header("Location: ../../src/login.html");
     } else {
         // show error if something went wrong
         echo "Error: " . $stmt->error;

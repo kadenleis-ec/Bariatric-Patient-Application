@@ -1,6 +1,6 @@
 <?php
 session_start(); // start session so we can store user info
-include '../assets/php/db.php'; // connect to database
+include 'db.php'; // connect to database
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // get username and password from the form
@@ -23,7 +23,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['username'] = $user['username'];
 
             // go to the dashboard
-            header("Location: ../src/dashboard.php");
+            if ($user['profile_complete']) {
+                header("Location: ../php/dashboard.php");
+            } else {
+                header("Location: ../php/profile.php"); // redirect if profile complete is false
+            }
             exit;
         } else {
             // wrong password

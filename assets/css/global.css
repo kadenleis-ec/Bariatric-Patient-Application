@@ -1,0 +1,121 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(160deg, #2962ff 50%, white 50%);
+    overflow-x: hidden;
+}
+
+#header {
+    height: 100px;
+    width: 100%;
+    padding: 0 100px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 10;
+}
+
+
+.left_part, .right_part {
+    display: flex;
+    align-items: center;
+}
+
+.left_part {
+    justify-content: flex-start;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    margin-left: 100px;
+    height: 90px;
+    width: auto;
+}
+.main_menu {
+    margin-left: 20px;
+    display: flex;
+    gap: 10px;
+}
+/* ---------- Nav Bar ---------- */
+.nav_box {
+    min-width: 100px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: white;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.nav_box:hover {
+    background-color: #addcfd;
+}
+
+.nav_box:visited,
+.nav_box:active {
+    color: black;
+}
+
+.nav_toggle {
+    display: none;
+    font-size: 30px;
+    margin-left: 40px;
+}
+
+.right_part {
+    gap: 30px;
+    margin-right: 100px;
+}
+
+.right_box a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.right_box a:hover {
+    color: #0071e3;
+}
+.user_label {
+    margin-right: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+    text-align: center;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+    background-color: #f0f4f8;
+    color: #333;
+    font-size: 15px;
+    font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+.footer span {
+    font-weight: 600;
+    color: #005eb8;
+}
