@@ -1,3 +1,39 @@
+<?php
+session_start();
+include 'db.php';
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../../src/login.html");
+    exit;
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $userId = $_SESSION['user_id'];
+
+    $firstName = $_POST['firstName'];
+    $lastName = $_POST['lastName'];
+    $gender = $_POST['gender'];
+    $dob = $_POST['dob'];
+    $age = $_POST['age'];
+    $height = $_POST['height'];
+    $weight = $_POST['weight'];
+    $phone = $_POST['phone'];
+
+    $stmt = $conn->prepare("UPDATE users SET first_name=?, last_name=?, gender=?, dob=?, age=?, height_cm=?, weight_kg=?, phone=?, profile_complete=1 WHERE id=?");
+    $stmt->bind_param("ssssiidsi", $firstName, $lastName, $gender, $dob, $age, $height, $weight, $phone, $userId);
+    
+    if ($stmt->execute()) {
+        header("Location: dashboard.php");
+        exit;
+    } else {
+        echo "Error saving profile.";
+    }
+}
+?>
+
+<!-- not done with this code yet  BUT it is connected to the database-->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +41,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile Page</title>
 
-    <link rel="stylesheet" href="../assets/css/profile.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/profile.css">
 </head>
 
 
@@ -14,7 +51,7 @@
     <div id="header">
         <a href="welcome.html">
             <div class="logo">
-                <img src="../assets/images/icons/mayo-logo.svg" alt="Mayo_Logo">
+                <img src="../images/icons/mayo-logo.svg" alt="Mayo_Logo">
             </div>
         </a>
     </div>
@@ -24,10 +61,11 @@
 
     <div id="container">
 
-        <h2 class="welcome">Welcome (USERNAME) !</h2>
+        <h2 class="welcome">Welcome <?php echo ucfirst(htmlspecialchars($_SESSION['username'])); ?>!</h2>
 
 
-        <form>
+
+        <form method="POST" action="">
             <label for="name">First Name</label>
 
             <input type="text" id="name" name="firstName" placeholder="Enter your first name">
