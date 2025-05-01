@@ -37,7 +37,7 @@ if (!isset($_SESSION['user_id'])) {
                 <a href="../../src/meet_the_team.html" class="nav_box">Meet The Team</a>
                 <a href="../../src/mood_tracker.html" class="nav_box">Mood Tracker</a>
                 <a href="../../src/social-support.html" class="nav_box">Social Support</a>
-                <a href="../../src/q-and-a.html" class="nav_box">Q & A</a>
+                <a href="../../src/FAQ.html" class="nav_box">Q & A</a>
             </div>
         </div>
 
