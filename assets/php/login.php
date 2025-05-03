@@ -23,11 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['username'] = $user['username'];
 
             // go to the dashboard
-            if ($user['profile_complete']) {
-                header("Location: ../php/dashboard.php");
-            } else {
-                header("Location: ../php/profile.php"); // redirect if profile complete is false
-            }
+            header("Location: dashboard.php");
             exit;
         } else {
             // wrong password

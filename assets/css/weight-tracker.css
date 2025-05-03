@@ -1,18 +1,21 @@
 body{
-    margin: 0;
+    margin: 0 auto; 
     padding: 0;
-    
-    min-height: 100%;
-    background: linear-gradient(160deg,  white 40%,#2962ff 40%);
+
+    min-height: 100vh;
+    background: linear-gradient(160deg,  white 50%,#2962ff 50%);
+
+
 }
+
+/* -----------header part------------ */
 #header{
     height: 70px;
     width:100%;
     margin-top:40px;
     margin-bottom: 30px;
-    background-color: white;
 
-    width: 800px;
+    width:1000px;
     margin: 40px auto;
 }
 
@@ -21,28 +24,36 @@ body{
     height: 70px;
     width: auto;
 }
-/* ---------- MAIN CONTAINER ---------- */
-#container {
-    max-width: 1000px;
-    margin: 50px auto;
-    background-color: white;
+
+
+/*--------------------the css of container-------------------  */
+#container{
+    margin-top: 30px;
+
+    width:1000px;
+    margin: 0 auto;
+
+    
+
     border-radius: 12px;
-    padding: 60px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    padding: 60px;
+    margin-top: 50px;
 
-    margin-bottom: 100px;
+    background-color: white;
+    
 }
 
-h2 {
+h2{
     font-size: 35px;
-    margin-bottom: 30px;
+
 }
 
-/* ---------- FORM FIELDS ---------- */
 .input {
     display: flex;
     flex-direction: column;
     margin-bottom: 15px;
+    font-family: Arial, sans-serif;
     max-width: 300px;
 }
 
@@ -66,11 +77,11 @@ h2 {
     outline: none;
 }
 
-/* ---------- SUBMIT BUTTON ---------- */
 .adddata_btn {
     height: 40px;
     width: 120px;
     margin-top: 10px;
+
     background-color: #2962ff;
     color: white;
     border: none;
@@ -92,14 +103,14 @@ h2 {
     transform: translateY(0);
 }
 
-/* ---------- CHART AREA ---------- */
-canvas {
+canvas{
     max-width: 100%;
     max-height: 500px;
+
     margin-top: 50px;
 }
 
-
+/* footer  */
 .footer {
     text-align: center;
     height: 70px;
@@ -112,8 +123,7 @@ canvas {
     font-size: 15px;
     font-family: "Segoe UI", "Helvetica Neue", sans-serif;
 
-    position: fixed;
-    bottom: 0;
+
     width: 100%;
 }
 

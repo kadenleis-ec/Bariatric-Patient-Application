@@ -2,36 +2,42 @@
 session_start();
 include 'db.php';
 
-if (!isset($_SESSION['user_id'])) {
-    header("Location: ../../src/login.html");
+$first_name = htmlspecialchars($_SESSION['first_name'] ?? 'Guest');
+$username = $_SESSION['username'] ?? null;
+
+if (!$username) {
+    header("Location: login.html");
     exit;
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $userId = $_SESSION['user_id'];
-
-    $firstName = $_POST['firstName'];
-    $lastName = $_POST['lastName'];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $gender = $_POST['gender'];
     $dob = $_POST['dob'];
-    $age = $_POST['age'];
-    $height = $_POST['height'];
-    $weight = $_POST['weight'];
+    $height = (int)$_POST['height'];
+    $weight = (int)$_POST['weight'];
     $phone = $_POST['phone'];
 
-    $stmt = $conn->prepare("UPDATE users SET first_name=?, last_name=?, gender=?, dob=?, age=?, height_cm=?, weight_kg=?, phone=?, profile_complete=1 WHERE id=?");
-    $stmt->bind_param("ssssiidsi", $firstName, $lastName, $gender, $dob, $age, $height, $weight, $phone, $userId);
-    
+    $sql = "UPDATE users 
+            SET gender = ?, dob = ?, height = ?, weight = ?, phone = ? 
+            WHERE username = ? 
+            ORDER BY id DESC 
+            LIMIT 1";
+
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ssiiis", $gender, $dob, $height, $weight, $phone, $username);
+
     if ($stmt->execute()) {
-        header("Location: dashboard.php");
-        exit;
+        if ($stmt->affected_rows === 0) {
+            echo "No rows updated — check if the username exists.";
+        } else {
+            header("Location: dashboard.php");
+            exit;
+        }
     } else {
-        echo "Error saving profile.";
+        die("Error: " . $stmt->error);
     }
 }
 ?>
-
-<!-- not done with this code yet  BUT it is connected to the database-->
 
 
 <!DOCTYPE html>
@@ -41,8 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile Page</title>
 
-    <link rel="stylesheet" href="../css/global.css">
-    <link rel="stylesheet" href="../css/profile.css">
+    <link rel="stylesheet" href="../../assets/css/profile.css">
 </head>
 
 
@@ -51,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div id="header">
         <a href="welcome.html">
             <div class="logo">
-                <img src="../images/icons/mayo-logo.svg" alt="Mayo_Logo">
+                <img src="../../assets/images/icons/mayo-logo.svg" alt="Mayo_Logo">
             </div>
         </a>
     </div>
@@ -61,19 +66,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <div id="container">
 
-        <h2 class="welcome">Welcome <?php echo ucfirst(htmlspecialchars($_SESSION['username'])); ?>!</h2>
+        <h2 class="welcome">Welcome <?php echo $first_name; ?>!</h2>
 
 
+        <form method="POST" action="">       
 
-        <form method="POST" action="">
-            <label for="name">First Name</label>
-
-            <input type="text" id="name" name="firstName" placeholder="Enter your first name">
-
-            <label for="name">Last Name</label>
-            
-            <input type="text" id="name" name="lastName" placeholder="Enter your last name">
-    
             <label for="gender">Gender</label>
 
 
@@ -88,10 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
             <label for="dob">Date of Birth</label>
             <input type="date" id="dob" name="dob">
-    
-            <label for="age">Age</label>
-            <input type="number" id="age" name="age" placeholder="Enter your age">
-    
+
             <label for="height">Height (cm)</label>
             <input type="number" id="height" name="height" placeholder="Enter your height">
     
@@ -107,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 
     
-    <script>
+    <!-- <script>
         document.querySelector('form').addEventListener('submit', function(event) {
             event.preventDefault(); 
     
@@ -129,7 +123,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             alert('Your profile information has been saved successfully.');
         });
-    </script>
+    </script> -->
 
 
     <footer class="footer">
