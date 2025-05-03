@@ -21,23 +21,21 @@
             </a>
             
             <div class="nav_toggle" onclick="toggleMenu()">☰</div>
-
             <div class="main_menu">
-                <a href="weight-tracker.html" class="nav_box">Weight Tracker</a>
+                <a href="../assets/php/weight-tracker.php" class="nav_box">Weight Tracker</a>
                 <a href="bmi.html" class="nav_box">BMI Calculator</a>
                 <a href="meet_the_team.html" class="nav_box">Meet The Team</a>
-                <a href="mood_tracker.html" class="nav_box">Mood Tracker</a>
-                <a href="social-support.html" class="nav_box">Social Support</a>
-                <a href="q-and-a.html" class="nav_box">Q & A</a>
+                <a href="../assets/php/mood-tracker.php" class="nav_box">Mood Tracker</a>
+                <a href="FAQ.html" class="nav_box">Q & A</a>
             </div>
             
             <div class="dropdown_menu" id="dropdownMenu">
-                <a href="weight-tracker.html" class="nav_box">Weight Tracker</a>
+                <a href="../assets/php/weight-tracker.php" class="nav_box">Weight Tracker</a>
                 <a href="bmi.html" class="nav_box">BMI Calculator</a>
                 <a href="meet_the_team.html" class="nav_box">Meet The Team</a>
-                <a href="mood_tracker.html" class="nav_box">Mood Tracker</a>
-                <a href="social-support.html" class="nav_box">Social Support</a>
-                <a href="q-and-a.html" class="nav_box">Q & A</a>
+                <a href="../assets/php/mood-tracker.php" class="nav_box">Mood Tracker</a>                
+                <a href="FAQ.html" class="nav_box">Q & A</a>
+
             </div>
 
             
@@ -262,6 +260,17 @@
     <footer class="footer">
         <p>&copy; 2025 <span>CS268 Group 5</span>. All rights reserved.</p>
       </footer>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggleButton = document.querySelector('.nav_toggle');
+            const menu = document.getElementById('dropdownMenu');
+
+        toggleButton.addEventListener('click', function () {
+        menu.classList.toggle('open');
+        });
+        });
+    </script>
     
 </body>
 </html>
