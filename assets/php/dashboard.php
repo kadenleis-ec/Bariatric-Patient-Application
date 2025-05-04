@@ -88,7 +88,7 @@ $mood_sql->close();
                 <a href="appointment.html">Request appointment</a> 
             </div>
             <div class="right_box">
-                <a href="../src/login.html">Log in</a>
+                <!-- <a href="../src/login.html">Log in</a> -->
             </div>
                 <!-- logout button -->
     <form action="logout.php" method="post">
