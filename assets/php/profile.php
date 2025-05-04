@@ -6,7 +6,7 @@ $first_name = htmlspecialchars($_SESSION['first_name'] ?? 'Guest');
 $username = $_SESSION['username'] ?? null;
 
 if (!$username) {
-    header("Location: login.html");
+    header("Location: ../../src/login.html");
     exit;
 }
 
@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
 
     <div id="header">
-        <a href="welcome.html">
+        <a href="../../src/welcome.html">
             <div class="logo">
                 <img src="../../assets/images/icons/mayo-logo.svg" alt="Mayo_Logo">
             </div>

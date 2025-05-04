@@ -10,148 +10,202 @@
 <body>
     <!-- head part(same as the weight tracker) -->
     <div id="header">
-      <a href="welcome.html">
-        <div class="logo">
-            <img src="../assets/images/icons/mayo-logo.svg" alt="Mayo_Logo">
-        </div>
-    </a>
-    </div>
+
+      <div class="left_part">
+
+          
+
+          <a href="welcome.html">
+              <div class="logo">
+                  <img src="../assets/images/icons/mayo-logo.svg" alt="Mayo_Logo">
+              </div>
+          </a>
+          
+          <div class="nav_toggle" onclick="toggleMenu()">☰</div>
+          <div class="main_menu">
+              <a href="../assets/php/Dashboard.php" class="nav_box">Dashboard</a>
+              <a href="../assets/php/weight-tracker.php" class="nav_box">Weight Tracker</a>
+              <a href="../src/bmi.html" class="nav_box">BMI Calculator</a>
+              <a href="../src/meet_the_team.html" class="nav_box">Meet The Team</a>
+              <a href="../assets/php/mood-tracker.php" class="nav_box">Mood Tracker</a>
+              <a href="../src/FAQ.html" class="nav_box">Q & A</a>
+          </div>
+          
+          <div class="dropdown_menu" id="dropdownMenu">
+              <a href="../assets/php/Dashboard.php" class="nav_box">Dashboard</a>
+              <a href="../assets/php/weight-tracker.php" class="nav_box">Weight Tracker</a>
+              <a href="../src/bmi.html" class="nav_box">BMI Calculator</a>
+              <a href="../src/meet_the_team.html" class="nav_box">Meet The Team</a>
+              <a href="../assets/php/mood-tracker.php" class="nav_box">Mood Tracker</a>                
+              <a href="../src/FAQ.html" class="nav_box">Q & A</a>
+
+          </div>
+
+          
+
+      </div>
+      
+
+      <!-- the request appointment adn login button -->
+      <div class="right_part">            
+
+          <div class="right_box">
+              <a href="appointment.html">Request appointment</a> 
+          </div>
+          <div class="right_box">
+              <!-- <a href="../src/login.html">Log in</a> -->
+          </div>
+              <!-- logout button -->
+  <form action="../assets/php/logout.php" method="post">
+      <button type="submit">Log Out</button>
+  </form>
+      </div>
+  </div>
+  <script>
+      document.addEventListener("DOMContentLoaded", function () {
+          const toggleButton = document.querySelector('.nav_toggle');
+          const menu = document.getElementById('dropdownMenu');
+
+      toggleButton.addEventListener('click', function () {
+      menu.classList.toggle('open');
+      });
+      });
+  </script>
 
   
 
 
 
-    <div class="container">
-        <canvas id="gauge" width="400" height="200"></canvas>
+<div class="container">
+    <canvas id="gauge" width="400" height="200"></canvas>
 
-        <div class="form">
-            <label for="height">Height (cm)</label>
-            <input type="number" id="height" placeholder="Enter your height">
-        </div>
-
-        <div class="form">
-            <label for="weight">Weight (kg)</label>
-            <input type="number" id="weight" placeholder="Enter your weight">
-        </div>
-
-        <button onclick="calculateBMI()">Calculate BMI</button>
-
-        <div id="result"></div>
-
-      </div>
-    
-
-
-
-      <script>
-        const canvas = document.getElementById("gauge");
-        const ctx = canvas.getContext("2d");
-        let currentBMI = 0;
-    
-        // Draw static gauge sections
-        function drawGauge() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            const ranges = [
-                { color: "#87CEFA", from: 0, to: 18.5 },
-                { color: "#90EE90", from: 18.5, to: 24.9 },
-                { color: "#FFD700", from: 25, to: 29.9 },
-                { color: "#FF6347", from: 30, to: 40 }
-            ];
-
-            ranges.forEach(range => {
-                const startAngle = (Math.PI * range.from) / 40;
-                const endAngle = (Math.PI * range.to) / 40;
-                ctx.beginPath();
-                ctx.arc(200, 200, 150, Math.PI + startAngle, Math.PI + endAngle);
-                ctx.lineWidth = 30;
-                ctx.lineCap = "butt";
-                ctx.strokeStyle = range.color;
-                ctx.stroke();
-            });
-        }
-    
-
-
-        // Draw needle at given BMI
-        function drawNeedle(bmi) {
-            const angle = Math.PI + (Math.PI * bmi) / 40;
-            const radius = 110;
-            const x = 200 + radius * Math.cos(angle);
-            const y = 200 + radius * Math.sin(angle);
-
-            // Draw needle line
-            ctx.beginPath();
-            ctx.moveTo(200, 200);
-            ctx.lineTo(x, y);
-            ctx.strokeStyle = "black";
-            ctx.lineWidth = 5;
-            ctx.lineCap = "round";
-            ctx.stroke();
-
-            // Draw center circle
-            ctx.beginPath();
-            ctx.arc(200, 200, 6, 0, 2 * Math.PI);
-            ctx.fillStyle = "#666";
-            ctx.fill();
-        }
-    
-
-
-        // Animate the needle to new BMI
-        function animateNeedle(targetBMI) {
-          const step = (targetBMI - currentBMI) / 30;
-          let count = 0;
-          const interval = setInterval(() => {
-            drawGauge();
-            currentBMI += step;
-            drawNeedle(currentBMI);
-            count++;
-            if (count >= 30) {
-              clearInterval(interval);
-              currentBMI = targetBMI;
-            }
-          }, 15);
-        }
-    
-
-
-        function calculateBMI() {
-          const username = document.getElementById("username").value;
-          const height = parseFloat(document.getElementById("height").value);
-          const weight = parseFloat(document.getElementById("weight").value);
-    
-          if (!username || !height || !weight || height <= 0 || weight <= 0) {
-            alert("Please enter valid information.");
-            return;
-          }
-    
-          const heightM = height / 100;
-          const bmi = weight / (heightM * heightM);
-          const roundedBMI = bmi.toFixed(1);
-    
-          document.getElementById("result").textContent = `${username}, your BMI is ${roundedBMI}`;
-    
-          animateNeedle(bmi);
-        }
-    
-        drawGauge();
-
-
-      </script>
-
-
-
-    <div class="bmi-info">
-
-        <p class="bmi-title">BMI Categories</p>
-
-        <div class="bmi-range"><span class="color-box underweight"></span> Underweight: &lt; 18.5</div>
-        <div class="bmi-range"><span class="color-box normal"></span> Normal: 18.5 – 24.9</div>
-        <div class="bmi-range"><span class="color-box overweight"></span> Overweight: 25 – 29.9</div>
-        <div class="bmi-range"><span class="color-box obese"></span> Obese: 30 – 40</div>
-
+    <div class="form">
+        <label for="height">Height (cm)</label>
+        <input type="number" id="height" placeholder="Enter your height">
     </div>
+
+    <div class="form">
+        <label for="weight">Weight (kg)</label>
+        <input type="number" id="weight" placeholder="Enter your weight">
+    </div>
+
+    <button onclick="calculateBMI()">Calculate BMI</button>
+
+    <div id="result"></div>
+
+  </div>
+
+
+
+
+  <script>
+    const canvas = document.getElementById("gauge");
+    const ctx = canvas.getContext("2d");
+    let currentBMI = 0;
+
+    // Draw static gauge sections
+    function drawGauge() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        const ranges = [
+            { color: "#87CEFA", from: 0, to: 18.5 },
+            { color: "#90EE90", from: 18.5, to: 24.9 },
+            { color: "#FFD700", from: 25, to: 29.9 },
+            { color: "#FF6347", from: 30, to: 40 }
+        ];
+
+        ranges.forEach(range => {
+            const startAngle = (Math.PI * range.from) / 40;
+            const endAngle = (Math.PI * range.to) / 40;
+            ctx.beginPath();
+            ctx.arc(200, 200, 150, Math.PI + startAngle, Math.PI + endAngle);
+            ctx.lineWidth = 30;
+            ctx.lineCap = "butt";
+            ctx.strokeStyle = range.color;
+            ctx.stroke();
+        });
+    }
+
+
+
+    // Draw needle at given BMI
+    function drawNeedle(bmi) {
+        const angle = Math.PI + (Math.PI * bmi) / 40;
+        const radius = 110;
+        const x = 200 + radius * Math.cos(angle);
+        const y = 200 + radius * Math.sin(angle);
+
+        // Draw needle line
+        ctx.beginPath();
+        ctx.moveTo(200, 200);
+        ctx.lineTo(x, y);
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = 5;
+        ctx.lineCap = "round";
+        ctx.stroke();
+
+        // Draw center circle
+        ctx.beginPath();
+        ctx.arc(200, 200, 6, 0, 2 * Math.PI);
+        ctx.fillStyle = "#666";
+        ctx.fill();
+    }
+
+
+
+    // Animate the needle to new BMI
+    function animateNeedle(targetBMI) {
+      const step = (targetBMI - currentBMI) / 30;
+      let count = 0;
+      const interval = setInterval(() => {
+        drawGauge();
+        currentBMI += step;
+        drawNeedle(currentBMI);
+        count++;
+        if (count >= 30) {
+          clearInterval(interval);
+          currentBMI = targetBMI;
+        }
+      }, 15);
+    }
+
+
+
+    function calculateBMI() {
+      const height = parseFloat(document.getElementById("height").value);
+      const weight = parseFloat(document.getElementById("weight").value);
+
+      if (!height || !weight || height <= 0 || weight <= 0) {
+        alert("Please enter valid information.");
+        return;
+      }
+
+      const heightM = height / 100;
+      const bmi = weight / (heightM * heightM);
+      const roundedBMI = bmi.toFixed(1);
+
+      document.getElementById("result").textContent = `Your BMI is ${roundedBMI}`;
+
+      animateNeedle(bmi);
+    }
+
+    drawGauge();
+
+
+  </script>
+
+
+
+<div class="bmi-info">
+
+    <p class="bmi-title">BMI Categories</p>
+
+    <div class="bmi-range"><span class="color-box underweight"></span> Underweight: &lt; 18.5</div>
+    <div class="bmi-range"><span class="color-box normal"></span> Normal: 18.5 – 24.9</div>
+    <div class="bmi-range"><span class="color-box overweight"></span> Overweight: 25 – 29.9</div>
+    <div class="bmi-range"><span class="color-box obese"></span> Obese: 30 – 40</div>
+
+</div>
 
     <footer class="footer">
       <p>&copy; 2025 <span>CS268 Group 5</span>. All rights reserved.</p>

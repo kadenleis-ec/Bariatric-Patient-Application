@@ -63,23 +63,70 @@ if ($userId != null) {
 </head>
 <body>
 
-<div id="header">
-    <div class="left_part">
-        <a href="welcome.html">
-            <div class="logo">
-                <img src="../images/icons/mayo-logo.svg" alt="Mayo_Logo">
+    <!-- the header  -->
+    <div id="header">
+
+        <div class="left_part">
+
+            
+
+            <a href="../../src/welcome.html">
+                <div class="logo">
+                    <img src="../images/icons/mayo-logo.svg" alt="Mayo_Logo">
+                </div>
+            </a>
+            
+            <div class="nav_toggle" onclick="toggleMenu()">☰</div>
+            <div class="main_menu">
+                <a href="../../assets/php/Dashboard.php" class="nav_box">Dashboard</a>
+                <a href="../../assets/php/weight-tracker.php" class="nav_box">Weight Tracker</a>
+                <a href="../../src/bmi.html" class="nav_box">BMI Calculator</a>
+                <a href="../../src/meet_the_team.html" class="nav_box">Meet The Team</a>
+                <a href="../../assets/php/mood-tracker.php" class="nav_box">Mood Tracker</a>
+                <a href="../../src/FAQ.html" class="nav_box">Q & A</a>
             </div>
-        </a>
-    </div>
-    <div class="right_part">
-        <div class="right_box">
-            <a href="appointment.html">Request appointment</a>
+            
+            <div class="dropdown_menu" id="dropdownMenu">
+                <a href="../../assets/php/Dashboard.php" class="nav_box">Dashboard</a>
+
+                <a href="../../assets/php/weight-tracker.php" class="nav_box">Weight Tracker</a>
+                <a href="../../src/bmi.html" class="nav_box">BMI Calculator</a>
+                <a href="../../src/meet_the_team.html" class="nav_box">Meet The Team</a>
+                <a href="../../assets/php/mood-tracker.php" class="nav_box">Mood Tracker</a>                
+                <a href="../../src/FAQ.html" class="nav_box">Q & A</a>
+
+            </div>
+
+            
+
         </div>
-        <div class="right_box">
-            <a href="logout.php">Log out</a>
+        
+
+        <!-- the request appointment adn login button -->
+        <div class="right_part">            
+
+            <div class="right_box">
+                <a href="appointment.html">Request appointment</a> 
+            </div>
+            <div class="right_box">
+                <!-- <a href="../src/login.html">Log in</a> -->
+            </div>
+                <!-- logout button -->
+    <form action="logout.php" method="post">
+        <button type="submit">Log Out</button>
+    </form>
         </div>
     </div>
-</div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggleButton = document.querySelector('.nav_toggle');
+            const menu = document.getElementById('dropdownMenu');
+
+        toggleButton.addEventListener('click', function () {
+        menu.classList.toggle('open');
+        });
+        });
+    </script>
 
 <div id="input_part">
     <h1>How are you feeling today?</h1>

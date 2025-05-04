@@ -6,6 +6,12 @@ $username = $_SESSION['username'] ?? null;
 $user_id = null;
 $initial_weight = null;
 
+// check if user is logged in
+if (!isset($_SESSION['username'])) {
+  echo "Please log in to use the weight tracker.";
+  exit;
+}
+
 if ($username) {
     $stmt = $conn->prepare("SELECT id, weight FROM users WHERE username = ?");
     $stmt->bind_param("s", $username);
@@ -68,14 +74,70 @@ if ($user_id) {
 </head>
 <body>
 
-  <div id="header">
-    <a href="welcome.html">
-      <div class="logo">
-        <img src="../images/icons/mayo-logo.svg" alt="Mayo_Logo" />
-      </div>
-    </a>
-  </div>
+<div id="header">
 
+<div class="left_part">
+
+    
+
+    <a href="../../src/welcome.html">
+        <div class="logo">
+            <img src="../images/icons/mayo-logo.svg" alt="Mayo_Logo">
+        </div>
+    </a>
+    
+    <div class="nav_toggle" onclick="toggleMenu()">☰</div>
+    <div class="main_menu">
+        <a href="../../assets/php/Dashboard.php" class="nav_box">Dashboard</a>
+        <a href="../../assets/php/weight-tracker.php" class="nav_box">Weight Tracker</a>
+        <a href="../../src/bmi.html" class="nav_box">BMI Calculator</a>
+        <a href="../../src/meet_the_team.html" class="nav_box">Meet The Team</a>
+        <a href="../../assets/php/mood-tracker.php" class="nav_box">Mood Tracker</a>
+        <a href="../../src/FAQ.html" class="nav_box">Q & A</a>
+    </div>
+    
+    <div class="dropdown_menu" id="dropdownMenu">
+        <a href="../../assets/php/Dashboard.php" class="nav_box">Dashboard</a>
+
+        <a href="./../assets/php/weight-tracker.php" class="nav_box">Weight Tracker</a>
+        <a href="../../src/bmi.html" class="nav_box">BMI Calculator</a>
+        <a href="../../src/meet_the_team.html" class="nav_box">Meet The Team</a>
+        <a href="../../assets/php/mood-tracker.php" class="nav_box">Mood Tracker</a>                
+        <a href="../../src/FAQ.html" class="nav_box">Q & A</a>
+
+    </div>
+
+    
+
+</div>
+
+
+<!-- the request appointment adn login button -->
+<div class="right_part">            
+
+    <div class="right_box">
+        <a href="appointment.html">Request appointment</a> 
+    </div>
+    <div class="right_box">
+        <!-- <a href="../src/login.html">Log in</a> -->
+    </div>
+        <!-- logout button -->
+<form action="logout.php" method="post">
+<button type="submit">Log Out</button>
+</form>
+</div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const toggleButton = document.querySelector('.nav_toggle');
+    const menu = document.getElementById('dropdownMenu');
+
+toggleButton.addEventListener('click', function () {
+menu.classList.toggle('open');
+});
+});
+</script>
+  <div id="page_wapper">
   <div id="container">
     <h2>Weight Tracker</h2>
 
@@ -144,6 +206,7 @@ if ($user_id) {
       });
       weightChart.update();
     </script>
+  </div>
   </div>
 
   <footer class="footer">

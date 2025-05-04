@@ -3,7 +3,7 @@ session_start();
 include 'db.php';
 
 if (!isset($_SESSION['user_id'])) {
-    header("Location: ../src/login.html");
+    header("Location: ../../src/login.html");
     exit;
 }
 
@@ -52,7 +52,7 @@ $mood_sql->close();
 
             
 
-            <a href="welcome.html">
+            <a href="../../src/welcome.html">
                 <div class="logo">
                     <img src="../images/icons/mayo-logo.svg" alt="Mayo_Logo">
                 </div>
@@ -60,19 +60,22 @@ $mood_sql->close();
             
             <div class="nav_toggle" onclick="toggleMenu()">☰</div>
             <div class="main_menu">
-                <a href="../assets/php/weight-tracker.php" class="nav_box">Weight Tracker</a>
-                <a href="bmi.html" class="nav_box">BMI Calculator</a>
-                <a href="meet_the_team.html" class="nav_box">Meet The Team</a>
-                <a href="../assets/php/mood-tracker.php" class="nav_box">Mood Tracker</a>
-                <a href="FAQ.html" class="nav_box">Q & A</a>
+                <a href="../../assets/php/Dashboard.php" class="nav_box">Dashboard</a>
+                <a href="../../assets/php/weight-tracker.php" class="nav_box">Weight Tracker</a>
+                <a href="../../src/bmi.html" class="nav_box">BMI Calculator</a>
+                <a href="../../src/meet_the_team.html" class="nav_box">Meet The Team</a>
+                <a href="../../assets/php/mood-tracker.php" class="nav_box">Mood Tracker</a>
+                <a href="../../src/FAQ.html" class="nav_box">Q & A</a>
             </div>
             
             <div class="dropdown_menu" id="dropdownMenu">
-                <a href="../assets/php/weight-tracker.php" class="nav_box">Weight Tracker</a>
-                <a href="bmi.html" class="nav_box">BMI Calculator</a>
-                <a href="meet_the_team.html" class="nav_box">Meet The Team</a>
-                <a href="../assets/php/mood-tracker.php" class="nav_box">Mood Tracker</a>                
-                <a href="FAQ.html" class="nav_box">Q & A</a>
+                <a href="../../assets/php/Dashboard.php" class="nav_box">Dashboard</a>
+
+                <a href="../../assets/php/weight-tracker.php" class="nav_box">Weight Tracker</a>
+                <a href="../../src/bmi.html" class="nav_box">BMI Calculator</a>
+                <a href="../../src/meet_the_team.html" class="nav_box">Meet The Team</a>
+                <a href="../../assets/php/mood-tracker.php" class="nav_box">Mood Tracker</a>                
+                <a href="../../src/FAQ.html" class="nav_box">Q & A</a>
 
             </div>
 
@@ -85,10 +88,10 @@ $mood_sql->close();
         <div class="right_part">            
 
             <div class="right_box">
-                <a href="appointment.html">Request appointment</a> 
+                <a href="../../src/appointment.html">Request appointment</a> 
             </div>
             <div class="right_box">
-                <!-- <a href="../src/login.html">Log in</a> -->
+                <!-- <a href="../../src/login.html">Log in</a> -->
             </div>
                 <!-- logout button -->
     <form action="logout.php" method="post">
